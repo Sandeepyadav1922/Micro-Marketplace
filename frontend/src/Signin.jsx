@@ -14,7 +14,6 @@ function SignInPage() {
   let navigate = useNavigate();
 
   let [error, setError] = useState({});
-  // let [currUser, setCurrUser] = useState();
   let [user, setUser] = useState({
     email: "",
     password: "",
@@ -51,7 +50,7 @@ function SignInPage() {
         navigate(from, {replace: true});
       })
       .catch((err) => {
-        console.log(err.response);
+        // console.log(err.response);
         toast.error(err.response.data.message)
     });
   };

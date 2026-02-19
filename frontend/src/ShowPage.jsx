@@ -23,11 +23,9 @@ const token = localStorage.getItem("token");
       .get(`${API}/products/${id}`)
       .then((res) => {
         setProduct(res.data);
-        // console.log(res.data);
         }
     )
       .catch((err) => {
-        console.log(err);
         toast.error(err.response.data || "Something went wrong");
         setTimeout(() => {
           navigate("/products");
@@ -51,7 +49,6 @@ const token = localStorage.getItem("token");
       }, 100);
       }
     } catch (err) {
-      console.log(err);
       toast.error(err.response.data.message);
     }
   };
@@ -86,12 +83,10 @@ const token = localStorage.getItem("token");
             rating: "",
             comment: ""
         })
-        console.log(res.data.reviews);
         toast.success(res.data.message);
         }
         })
         .catch((err) => {
-            console.log(err);
             toast.error(err.response.data.message)
         })
     };
@@ -114,7 +109,6 @@ const token = localStorage.getItem("token");
         }
     })
     .catch((err) => {
-        console.log(err.response);
         toast.error(err.response.data.message)
   })
   }
