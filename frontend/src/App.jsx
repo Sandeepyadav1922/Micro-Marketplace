@@ -17,12 +17,13 @@ import SignUpPage from "./Signup";
 export const UserContext = createContext(null);
 
 function App() {
+  const API = import.meta.env.VITE_API_URL;
   let [currUser, setCurrUser] = useState(null);
   const token = localStorage.getItem("token");
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/authenticate", {
+      .get(`${API}/authenticate`, {
         headers: { Authorization: token },
       })
       .then((res) => {

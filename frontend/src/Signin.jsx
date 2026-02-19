@@ -6,6 +6,7 @@ import { UserContext } from "./App";
 import "./Auth.css";
 
 function SignInPage() {
+  const API = import.meta.env.VITE_API_URL;
   let location = useLocation();
   let {setCurrUser} = useContext(UserContext);
 
@@ -37,7 +38,7 @@ function SignInPage() {
     if(!validateSignup()) return;
 
     axios
-      .post("http://localhost:8080/auth/login", user)
+      .post(`${API}/auth/login`, user)
       .then((res) => {
         setUser({
           email: "",

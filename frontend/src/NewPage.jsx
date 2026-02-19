@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 // import "./NewPage.css";
 
 function NewPage() {
+  const API = import.meta.env.VITE_API_URL;
   const token = localStorage.getItem("token");
   let [error, setError] = useState({});
   let [product, setProduct] = useState({
@@ -43,7 +44,7 @@ function NewPage() {
     if (!validateProduct()) return;
 
     axios
-      .post("http://localhost:8080/products", product, {
+      .post(`${API}/products`, product, {
         headers: { Authorization: token },
       })
       .then(() => {

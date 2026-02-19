@@ -6,6 +6,7 @@ import { UserContext } from "./App";
 import "./ShowPage.css";
 
 function ShowPage() {
+  const API = import.meta.env.VITE_API_URL;
   let { currUser } = useContext(UserContext);
 const token = localStorage.getItem("token");
   let [product, setProduct] = useState(null);
@@ -19,7 +20,7 @@ const token = localStorage.getItem("token");
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/products/${id}`)
+      .get(`${API}/products/${id}`)
       .then((res) => {
         setProduct(res.data);
         // console.log(res.data);
@@ -39,7 +40,7 @@ const token = localStorage.getItem("token");
   const handleDelete = async (e) => {
     e.preventDefault();
     try {
-      let res = await axios.delete(`http://localhost:8080/products/${id}`, { headers: { Authorization: token } });
+      let res = await axios.delete(`${API}/products/${id}`, { headers: { Authorization: token } });
       if(!currUser) {
         toast.error("You are not Logged in");
         return;
@@ -71,7 +72,7 @@ const token = localStorage.getItem("token");
   const handleReviewSubmit = (e) => {
         e.preventDefault();
         if(!reviewValidation()) return;
-        axios.post(`http://localhost:8080/products/${id}/review`, review, {headers: {Authorization: token}})
+        axios.post(`${API}/products/${id}/review`, review, {headers: {Authorization: token}})
         .then((res) => {
           if(!currUser) {
             toast.error("Must be Logged In");
@@ -100,7 +101,7 @@ const token = localStorage.getItem("token");
   };
 
   const handleReviewDelete = async(reviewId) => {
-    await axios.delete(`http://localhost:8080/products/${id}/review/${reviewId}`, {headers: {Authorization: token}})
+    await axios.delete(`${API}/products/${id}/review/${reviewId}`, {headers: {Authorization: token}})
     .then((res) => {
       if(!currUser) {
         toast.error(res.data.message);

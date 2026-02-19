@@ -5,11 +5,12 @@ import { toast } from "react-toastify";
 import "./IndexPage.css";
 
 function IndexPage() {
+  const API = import.meta.env.VITE_API_URL;
     let [products, setProducts] = useState([]);
       const token = localStorage.getItem("token");
 
     useEffect(() => {
-        axios.get("http://localhost:8080/products", {headers: {
+        axios.get(`${API}/products`, {headers: {
           Authorization: token
         }})
         .then((res) => setProducts(res.data))

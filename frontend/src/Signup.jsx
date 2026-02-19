@@ -7,7 +7,7 @@ import "./Auth.css";
 
 function SignUpPage() {
 //   let {setCurrUser} = useContext(UserContext);
-
+  const API = import.meta.env.VITE_API_URL;
   let navigate = useNavigate();
 
   let [error, setError] = useState({});
@@ -38,7 +38,7 @@ function SignUpPage() {
     if(!validateSignup()) return;
 
     axios
-      .post("http://localhost:8080/auth/register", user, {withCredentials: true})
+      .post(`${API}/auth/register`, user, {withCredentials: true})
       .then((res) => {
         setUser({
           name: "",

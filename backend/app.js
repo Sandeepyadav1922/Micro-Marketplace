@@ -11,8 +11,10 @@ const userRouter = require("./routes/user.js");
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cors({
-    origin: "http://localhost:5173",
-    credentials: true
+    origin: [
+        "http://localhost:5173",
+        "https://micro-marketplace-app.onrender.com"
+        ]
 }));
 
 async function main() {

@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 function EditPage() {
+  const API = import.meta.env.VITE_API_URL;
   const token = localStorage.getItem("token")
   let { id } = useParams();
   const navigate = useNavigate();
@@ -35,7 +36,7 @@ function EditPage() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/products/${id}`)
+      .get(`${API}/products/${id}`)
       .then((res) => {
         setProduct(res.data);
         console.log(res);
@@ -50,7 +51,7 @@ function EditPage() {
 
     try {
       let res = await axios.put(
-        `http://localhost:8080/products/${id}`,
+        `${API}/products/${id}`,
         updateProduct,
         { headers: { Authorization: token } },
       );
