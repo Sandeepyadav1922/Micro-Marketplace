@@ -1,0 +1,8 @@
+.nav-link {
+    font-weight: 600;
+    font-size: large;
+}
+
+.nav-link:hover {
+    color: rgb(255, 111, 0);
+}

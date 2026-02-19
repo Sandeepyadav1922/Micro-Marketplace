@@ -1,0 +1,23 @@
+.auth-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 6rem;
+    padding: 10px;
+}
+
+.auth-body {
+    background-color: rgba(18, 109, 109, 0.975);
+    width: 27em;
+    padding: 3rem;
+    border-radius: 1rem;
+    transition: 2s;
+}
+
+label {
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+}
+
+.auth-body:hover {
+    box-shadow: 1px 1px 15px 0.5px black;
+}
