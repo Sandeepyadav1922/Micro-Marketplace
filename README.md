@@ -1,11 +1,16 @@
-# Micro-Marketplace
-A full-stack marketplace app with authentication, product management, and ratings built using MERN stack.
-
 # Full Stack Web Application
 
 This is a full stack web application developed using React.js for the frontend and Node.js + Express.js for the backend. The application follows REST API architecture and supports complete CRUD operations with proper environment-based configuration.
 
 The project demonstrates frontend-backend integration, API handling, environment variable management, and deployment-ready structure.
+
+## Live Demo
+
+Frontend (Live):
+https://micro-marketplace-app.onrender.com
+
+Backend (Live API):
+https://micro-marketplace-backend.onrender.com
 
 ## Features
 
